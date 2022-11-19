@@ -1,0 +1,16 @@
+name: run-test-suite
+run-name: GitHub Actions for Mutational Test Coverage
+on: [push]
+jobs:
+  run-mutation-test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+
+      - uses: actions/setup-node@v3
+
+        with:
+          node-version: '14'
+      - run: sudo apt-get update
+      - run: mvn clean -DskipTests install
+      - run: mvn test-compile org.pitest:pitest-maven:mutationCoverage

@@ -84,6 +84,22 @@
 
   <build>
     <plugins>
+    <plugin>
+          <groupId>org.pitest</groupId>
+          <artifactId>pitest-maven</artifactId>
+          <version>1.9.11</version>
+          <configuration>
+          <excludedTestClasses>
+            <param>com.sismics.docs.core.util.*</param>
+            <param>com.sismics.util.format.*</param>
+            <param>com.sismics.docs.rest.TestGroupResource</param>
+            <param>com.sismics.docs.rest.TestMetadataResource</param>
+            <param>com.sismics.docs.rest.TestRouteResource</param>
+        </excludedTestClasses>
+        <timeoutConstant>2000</timeoutConstant>
+        </configuration>
+      </plugin>
+
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-antrun-plugin</artifactId>
@@ -118,6 +134,19 @@
         <version>${org.eclipse.jetty.jetty-maven-plugin.version}</version>
       </plugin>
 
+      <plugin>
+          <groupId>com.github.spotbugs</groupId>
+          <artifactId>spotbugs-maven-plugin</artifactId>
+          <version>4.7.2.1</version>
+          <dependencies>
+            <!-- overwrite dependency on spotbugs if you want to specify the version of spotbugs -->
+            <dependency>
+              <groupId>com.github.spotbugs</groupId>
+              <artifactId>spotbugs</artifactId>
+              <version>4.7.3</version>
+            </dependency>
+          </dependencies>
+      </plugin>
 
       <plugin>
         <groupId>org.jacoco</groupId>
