@@ -95,6 +95,7 @@
             <param>com.sismics.docs.rest.TestGroupResource</param>
             <param>com.sismics.docs.rest.TestMetadataResource</param>
             <param>com.sismics.docs.rest.TestRouteResource</param>
+            <param>com.sismics.docs.rest.TestDocumentResource</param>
         </excludedTestClasses>
         <timeoutConstant>2000</timeoutConstant>
         </configuration>
