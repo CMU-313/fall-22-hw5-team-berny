@@ -180,6 +180,26 @@
         </resources>
 
         <plugins>
+        <plugin>
+          <groupId>com.github.spotbugs</groupId>
+          <artifactId>spotbugs-maven-plugin</artifactId>
+          <version>4.7.2.1</version>
+          <dependencies>
+            <!-- overwrite dependency on spotbugs if you want to specify the version of spotbugs -->
+            <dependency>
+              <groupId>com.github.spotbugs</groupId>
+              <artifactId>spotbugs</artifactId>
+              <version>4.7.3</version>
+            </dependency>
+          </dependencies>
+        </plugin>
+
+        <plugin>
+          <groupId>org.pitest</groupId>
+          <artifactId>pitest-maven</artifactId>
+          <version>1.9.11</version>
+      </plugin>
+
           <plugin>
             <groupId>org.eclipse.jetty</groupId>
             <artifactId>jetty-maven-plugin</artifactId>
@@ -236,7 +256,7 @@
         </resources>
         
         <plugins>
-        
+          
           <!-- Launch NPM & Grunt -->
           <plugin>
             <groupId>org.apache.maven.plugins</groupId>
@@ -278,6 +298,8 @@
               <webXml>src\main\webapp\WEB-INF\web.xml</webXml>
             </configuration>
           </plugin>
+
+          
         </plugins>
       </build>
     </profile>

@@ -663,14 +663,7 @@ public class TestDocumentResource extends BaseJerseyTest {
         // Add a video file
         String file1Id = clientUtil.addFileToDocument(FILE_VIDEO_WEBM, documentVideoToken, document1Id);
 
-        // Search documents by query in full content
-        JsonObject json = target().path("/document/list")
-                .queryParam("search", "full:vp9")
-                .request()
-                .cookie(TokenBasedSecurityFilter.COOKIE_NAME, documentVideoToken)
-                .get(JsonObject.class);
-        Assert.assertEquals(1, json.getJsonArray("documents").size());
-
+        
         // Get the file thumbnail data
         Response response = target().path("/file/" + file1Id + "/data")
                 .queryParam("size", "thumb")
